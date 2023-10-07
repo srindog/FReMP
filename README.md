@@ -1,2 +1,2 @@
 # FReMP
-Archetype using the Flask, React, Mongo, Python (FReMP) stack
+Archetype using the Flask, React (Vite), Mongo, Python (FReMP) stack
