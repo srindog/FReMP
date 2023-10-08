@@ -17,9 +17,11 @@ build/
 .idea/
 docs/_build/
 .vscode
+*.pem
 
 # Coverage reports
 htmlcov/
 .coverage
 .coverage.*
 *,cover
+
