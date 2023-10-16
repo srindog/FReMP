@@ -1,9 +1,10 @@
 from flask import Flask, redirect, url_for
 from flask_cors import CORS, cross_origin
-import json
-from pymongo import MongoClient
 from dotenv import load_dotenv
+from pymongo import MongoClient
+import json
 import os
+from constants import *
 
 load_dotenv()
 app = Flask(__name__)
@@ -18,15 +19,14 @@ client = MongoClient(
 test_db = client['testDB']
 test_col = test_db['testCol']
 
-@app.route('/local_hello')
-def hello():
-  return {"local_message": "Hello World"}
+@app.route('/greeting')
+def greeting():
+  return {'greeting': GREETING}
 
-@app.route('/dynamic_hello')
-def dynamic_greeting():
-  dynamic_greeting = test_col.find_one({"greeting": "Hello World"})
-  return {"message_from_mongo": dynamic_greeting['greeting']}
-
+@app.route('/greeting/mongo')
+def mongo_greeting():
+  mongo_greeting = test_col.find_one({'greeting': 'Hello from Mongo!'})
+  return {'greeting': mongo_greeting['greeting']}
 
 
 if __name__ == "__main__":
