@@ -2,7 +2,6 @@ from flask import Flask, redirect, url_for
 from flask_cors import CORS, cross_origin
 from dotenv import load_dotenv
 from pymongo import MongoClient
-import json
 import os
 from constants import *
 
